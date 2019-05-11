@@ -1,7 +1,5 @@
 #MODULE:MEASUREMENTS
 
-import statistics
-
 import ULTRASOUND
 import STATUS
 import VOLUME
@@ -9,7 +7,7 @@ import VOLUME
 #PROPERTIES
 
 NUMBER_OF_MEASUREMENTS = 10
-DIFF_TOLERANCE = 0.5 #CM
+DIFF_TOLERANCE = 0.2 #CM
 
 #ACTIONS
 
@@ -40,8 +38,5 @@ def measure():
     elif maxOffset > DIFF_TOLERANCE:
 	measure()
     else:
-	median = statistics.median(measurements)
-	print("MEASUREMENTS - MEASURE - MEDIAN = [%.3f]" % median)
-	STATUS.saveDistance(median)
-
-    VOLUME.update()
+	STATUS.saveDistance(average)
+    	VOLUME.update()

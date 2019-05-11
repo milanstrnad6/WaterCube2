@@ -3,10 +3,6 @@
 import STATUS
 import LED
 
-#PROPERTIES
-
-PERCENTAGE_TOLERANCE = 0.1 #10%
-
 #ACTIONS
 
 def update():
@@ -30,7 +26,8 @@ def update():
     STATUS.saveVolume(volume)
     STATUS.savePercentage(percentage)
 
-    if percentage < PERCENTAGE_TOLERANCE:
+    warningPercentage = STATUS.loadWarningPercentage()
+    if percentage < warningPercentage:
 	LED.red()
     else:
 	LED.blue()

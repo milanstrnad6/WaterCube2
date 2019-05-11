@@ -23,7 +23,7 @@ def getDistance():
     print("ULTRASOUND - GET DISTANCE...")
 
     #For sure.
-    time.sleep(0.02)
+    time.sleep(0.015)
 
     #Sending sound for duration 0.00001 seconds.
     IO.output(US_OUT, 1)
@@ -31,12 +31,16 @@ def getDistance():
     IO.output(US_OUT, 0)
 
     #Prepare properties for measuring time.
+    timeStartFixed = time.time()
     timeStart = time.time()
     timeStop = time.time()
 
     #Listen for sound coming back.
     while IO.input(US_IN) == 0:
  	timeStart = time.time()
+	diff = timeStart - timeStartFixed
+	if diff > 1:
+	    return 1000.0
     while IO.input(US_IN) == 1:
 	timeStop = time.time()
 

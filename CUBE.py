@@ -17,7 +17,7 @@ FILENAME = '/home/pi/CUBE/DATA/booting.txt'
 ROW_BOOTING = 1
 BOOTING_EXTRATIME = 2 #seconds
 
-WAIT_FOR_NEXT_CHECK = 3 #seconds
+WAIT_FOR_NEXT_CHECK = 2 #seconds
 
 #ACTIONS
 
@@ -38,14 +38,11 @@ def boot():
 
 def start():
     print("*[CUBE - START]*")
-    check()
-
-def check():
-    print("*[CUBE - CHECK]*")
-    MEASUREMENTS.measure()
-    SCHEDULE.pourIfNeeded()
-    time.sleep(WAIT_FOR_NEXT_CHECK)
-    check()
+    while True:
+	print("*[CUBE - CHECK]*")
+       	MEASUREMENTS.measure()
+    	SCHEDULE.pourIfNeeded()
+    	time.sleep(WAIT_FOR_NEXT_CHECK)
 
 #MAIN
 

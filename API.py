@@ -28,8 +28,8 @@ def api_volume():
     	volumeMax = STATUS.loadVolumeMax()
    	volume = STATUS.loadVolume()
       	percentage = STATUS.loadPercentage()
-    #print("VOLUME MAX = [%d], VOLUME = [%d], PERCENTAGE = [%d]" % (volumeMax,volume,percentage))
-    return {"data":{"volumeMax":volumeMax,"volume":volume,"percentage":percentage}}
+	warningPercentage = STATUS.loadWarningPercentage()
+    return {"data":{"volumeMax":volumeMax,"volume":volume,"percentage":percentage,"warningPercentage":warningPercentage}}
 
 @app.route('/pouring/', methods=["POST"])
 def api_pouring():
