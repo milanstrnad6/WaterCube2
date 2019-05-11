@@ -1,0 +1,52 @@
+#BOOT MODULE:CUBE
+
+import RPi.GPIO as IO
+import time
+
+import ULTRASOUND
+import PUMP
+import LED
+
+import FILES
+import MEASUREMENTS
+import SCHEDULE
+
+#PROPERTIES
+
+FILENAME = '/home/pi/CUBE/DATA/booting.txt'
+ROW_BOOTING = 1
+BOOTING_EXTRATIME = 2 #seconds
+
+WAIT_FOR_NEXT_CHECK = 3 #seconds
+
+#ACTIONS
+
+def boot():
+    print("*[CUBE - BOOT]*")
+    IO.setmode(IO.BCM)
+    IO.setwarnings(0)
+    ULTRASOUND.setup()
+    PUMP.setup()
+    LED.setup()
+
+    duration = int(FILES.loadline(FILENAME,ROW_BOOTING)) + BOOTING_EXTRATIME
+    LED.bootBlinking(duration)
+
+    start()
+
+#UTILITIES
+
+def start():
+    print("*[CUBE - START]*")
+    check()
+
+def check():
+    print("*[CUBE - CHECK]*")
+    MEASUREMENTS.measure()
+    SCHEDULE.pourIfNeeded()
+    time.sleep(WAIT_FOR_NEXT_CHECK)
+    check()
+
+#MAIN
+
+boot()
