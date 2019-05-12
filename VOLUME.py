@@ -1,4 +1,4 @@
-#SUBMODULE:VOLUME
+#MODULE:VOLUME
 
 import STATUS
 import LED

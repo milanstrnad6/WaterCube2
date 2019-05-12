@@ -1,4 +1,4 @@
-#MANAGER:HISTORY - history.txt
+#MANAGER:HISTORY
 
 import FILES
 import TIMES

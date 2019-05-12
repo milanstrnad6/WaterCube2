@@ -1,4 +1,4 @@
-#MODULE:SCHEDULE
+#MANAGER:SCHEDULE
 
 import datetime
 

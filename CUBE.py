@@ -15,8 +15,8 @@ import SCHEDULE
 
 FILENAME = '/home/pi/CUBE/DATA/booting.txt'
 ROW_BOOTING = 1
-BOOTING_EXTRATIME = 2 #seconds
 
+BOOTING_EXTRATIME = 2 #seconds
 WAIT_FOR_NEXT_CHECK = 2 #seconds
 
 #ACTIONS
