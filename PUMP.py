@@ -1,9 +1,13 @@
-#MODULE:PUMP
+#HW:PUMP
 
 import RPi.GPIO as IO
 import time
 
+#PROPERTIES
+
 PUMP = 12
+
+#HELPERS
 
 ON = 0
 OFF = 1
@@ -25,9 +29,4 @@ def start(duration):
     IO.output(PUMP, ON)
     time.sleep(duration)
     IO.output(PUMP, OFF)
-
-#UTILITIES
-
-def stop():
-    print("PUMP - STOP")
-    IO.output(PUMP, OFF)
+    

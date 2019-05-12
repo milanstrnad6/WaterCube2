@@ -1,7 +1,9 @@
-#MODULE:LED
+#HW:LED
 
 import RPi.GPIO as IO
 import time
+
+#PROPERTIES
 
 LED_BLUE = 20
 LED_RED = 16

@@ -1,4 +1,4 @@
-#MODULE:ULTRASOUND(short:US)
+#HW:ULTRASOUND
 
 import RPi.GPIO as IO
 import time
