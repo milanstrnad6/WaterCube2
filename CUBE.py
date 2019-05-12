@@ -1,4 +1,4 @@
-#BOOT MODULE:CUBE
+#BOOT MODULE:CUBE XXX
 
 import RPi.GPIO as IO
 import time
