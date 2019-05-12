@@ -12,34 +12,46 @@ import PUMP
 
 FILENAME = '/home/pi/CUBE/DATA/schedule.txt'
 ROW_SCHEDULE_ON = 1
-ROW_DATETIME = 3 #not needed
-ROW_SKIP_DAYS = 5
-ROW_PUMP_DURATION = 7
+ROW_SKIP_DAYS = 3
+ROW_PUMP_DURATION = 5
 
 #ACTIONS
 
 def pourIfNeeded():
     print("SCHEDULE - POUR IF NEEDED")
+
     isScheduleOn = int(FILES.loadline(FILENAME,ROW_SCHEDULE_ON))
     if isScheduleOn == 1:
-	#check if there was pour
 
-    	lastPour = STATUS.loadLastPour()
-	print("SCHEDULE - POUR IF NEEDED - LAST POUR:")
-	print(lastPour)
-	lastPourDate = TIMES.dateFrom(lastPour.rstrip())
-	print("SCHEDULE - POUR IF NEEDED - LAST POUR DATE:")
-	print(lastPourDate)
+	nextPour = STATUS.loadAutomaticPourScheduled()
+	next = TIMES.dateFrom(nextPour)
+	print("SCHEDULE - POUR IF NEEDED - NEXT:")
+	print(next)
+	now = datetime.datetime.now()
+	print("SCHEDULE - POUR IF NEEDED - NOW:")
+	print(now)
 
 	skipDays = int(FILES.loadline(FILENAME,ROW_SKIP_DAYS))
-	nextPourDate = lastPourDate + datetime.timedelta(days=skipDays)
-	print("SCHEDULE - POUR IF NEEDED - NEXT POUR DATE:")
-	print(nextPourDate)
 
-	dateNow = datetime.datetime.now()
+	if now.date() == next.date() and now.time().hour == next.time().hour and now.time().minute == next.time().minute:
+	    print("SCHEDULE - POUR IF NEEDED - [IT IS TIME!]")
 
-	if dateNow >= nextPourDate:
+	    #Check water!
+
+	    #Pouring...
 	    duration = float(FILES.loadline(FILENAME,ROW_PUMP_DURATION))
 	    HISTORY.saveEventAutomaticPour(duration)
-	    STATUS.saveLastPour(TIMES.now())
+	    STATUS.saveAutomaticPourLast(TIMES.nowAsString())
 	    PUMP.start(duration)
+
+	    #Prepare next.
+	    scheduled = next + datetime.timedelta(days=skipDays+1)
+	    STATUS.saveAutomaticPourScheduled(TIMES.stringFrom(scheduled))
+
+	elif now > next:
+	    print("SCHEDULE - POUR IF NEEDED - [NEED TO UPDATE AUTOMATIC_POUR_SCHEDULED DATE]")
+	    while next <= now:
+		next = next + datetime.timedelta(days=skipDays+1)
+	    STATUS.saveAutomaticPourScheduled(TIMES.stringFrom(next))
+	else:
+	    print("SCHEDULE - POUR IF NEEDED - [IT IS NOT TIME YET]")

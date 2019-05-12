@@ -14,8 +14,7 @@ ROW_VOLUME = 11
 ROW_PERCENTAGE = 13
 ROW_WARNING_PERCENTAGE = 15
 ROW_DAYS_LEFT = 17
-ROW_POUR_HAPPENED = 19
-ROW_LAST_POUR = 21
+ROW_AUTOMATIC_POUR_SCHEDULED = 19
 
 #ACTIONS
 
@@ -75,18 +74,10 @@ def saveDaysLeft(daysLeft):
     print("STATUS - SAVE DAYS LEFT [%d]" % daysLeft)
     FILES.saveline(FILENAME,ROW_DAYSLEFT,str(daysLeft))
 
-def loadPourHappened():
-    print("STATUS - LOAD POUR HAPPENED")
-    return int(FILES.loadline(FILENAME,ROW_POUR_HAPPENED))
+def loadAutomaticPourScheduled():
+    print("STATUS - LOAD AUTOMATIC POUR SCHEDULED")
+    return FILES.loadline(FILENAME,ROW_AUTOMATIC_POUR_SCHEDULED).rstrip()
 
-def savePourHappened(pourHappened):
-    print("STATUS - SAVE POUR HAPPENED")
-    FILES.saveline(FILENAME,ROW_POUR_HAPPENED,str(pourHappened))
-
-def loadLastPour():
-    print("STATUS - LOAD LAST POUR")
-    return FILES.loadline(FILENAME,ROW_LAST_POUR)
-
-def saveLastPour(lastPour):
-    print("STATUS - SAVE LAST POUR")
-    FILES.saveline(FILENAME,ROW_LAST_POUR,lastPour)
+def saveAutomaticPourScheduled(automaticPourScheduled):
+    print("STATUS - SAVE AUTOMATIC POUR SCHEDULED")
+    FILES.saveline(FILENAME,ROW_AUTOMATIC_POUR_SCHEDULED,automaticPourScheduled)

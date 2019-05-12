@@ -36,7 +36,7 @@ def saveEventWarning():
 def saveEvent(type,seconds=0):
     print("HISTORY - SAVE EVENT")
     data = FILES.load(FILENAME)
-    record = type + "|" + TIMES.now() + "|" + str(seconds) + "\n"
+    record = type + "|" + TIMES.nowAsString() + "|" + str(seconds) + "\n"
     data.append(record)
     FILES.save(FILENAME,data)
 
