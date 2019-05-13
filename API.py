@@ -48,7 +48,7 @@ def device():
 def manualPouring():
     print("API - POURING")
     if request.method == "POST":
-	   seconds = float(request.data.get("seconds"))
+	   seconds = float(request.data.get("duration"))
 	   HISTORY.save_manualPour(seconds)
 	   PUMP.start(seconds)
 
