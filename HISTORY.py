@@ -18,6 +18,7 @@ def loadAllEvents():
 def saveEventDeviceInit():
     print("HISTORY - SAVE EVENT: DEVICE INIT")
     saveEvent("deviceInit")
+    return TIMES.nowAsString()
 
 def saveEventManualPour(seconds):
     print("HISTORY - SAVE EVENT: MANUAL POUR")
