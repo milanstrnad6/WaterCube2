@@ -22,8 +22,8 @@ def deviceInit():
 
     return {"data":{"time":time}}
 
-@app.route('/device/', methods=["GET"])
-def device():
+@app.route('/getDevice/', methods=["GET"])
+def getDevice():
     print("API - DEVICE")
     if request.method == "GET":
         volumeMax = DATA.load_volumeMax()
@@ -53,6 +53,17 @@ def manualPouring():
 	   PUMP.start(seconds)
 
     return {"data":{}}
+
+@app.route('/updateSchedule/', methods=["POST"])
+def updateSchedule():
+    print("API - UPDATE SCHEDULE")
+    if request.method == "POST":
+        name = request.data.get("name")
+        date = request.data.get("date")
+        duration = float(request.data.get("duration"))
+        skipDays = int(request.data.get("skipDays"))
+        SCHEDULE.update(name,date,duration,skipDays)
+    return {}
 
 #MAIN
 
