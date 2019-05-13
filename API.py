@@ -20,9 +20,7 @@ def deviceInit():
     if request.method == "GET":
         time = HISTORY.save_deviceInit()
 
-    return {"data":{
-        "time":time
-    }}
+    return {"data":{"time":time}}
 
 @app.route('/device/', methods=["GET"])
 def device():
@@ -44,23 +42,7 @@ def device():
 
         events = HISTORY.load_allEvents()
 
-    return {"data":{
-        "volumeMax":volumeMax,
-        "warningPercentage":warningPercentage,
-        "warningDaysLeft":warningDaysLeft,
-
-        "pouringInProgress":pouringInProgress,
-        "percentage":percentage,
-        "volume":volume,
-        "daysLeft":daysLeft,
-
-        "name":name,
-        "date":date,
-        "duration":duration,
-        "skipDays":skipDays,
-
-        "events":events
-    }}
+    return {"data":{"volumeMax":volumeMax,"warningPercentage":warningPercentage,"warningDaysLeft":warningDaysLeft,"pouringInProgress":pouringInProgress,"percentage":percentage,"volume":volume,"daysLeft":daysLeft,"name":name,"date":date,"duration":duration,"skipDays":skipDays,"events":events}}
 
 @app.route('/manualPouring/', methods=["POST"])
 def manualPouring():
