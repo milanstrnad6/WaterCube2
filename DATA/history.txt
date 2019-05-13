@@ -1,1 +1,2 @@
 HISTORY
+deviceInit|2019-05-13 21:32|0
