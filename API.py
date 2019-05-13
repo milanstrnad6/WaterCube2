@@ -28,19 +28,19 @@ def deviceInit():
 def device():
     print("API - DEVICE")
     if request.method == "GET":
-        volumeMax = DATA.loadVolumeMax()
-        warningPercentage = DATA.loadWarningPercentage()
-        warningDaysLeft = DATA.warningDaysLeft()
+        volumeMax = DATA.load_volumeMax()
+        warningPercentage = DATA.load_warningPercentage()
+        warningDaysLeft = DATA.load_warningDaysLeft()
 
-        pouringInProgress = DATA.pouringInProgress()
-        percentage = DATA.percentage()
-        volume = DATA.volume()
-        daysLeft = DATA.daysLeft()
+        pouringInProgress = DATA.load_pouringInProgress()
+        percentage = DATA.load_percentage()
+        volume = DATA.load_volume()
+        daysLeft = DATA.load_daysLeft()
 
-        name = DATA.name()
-        date = DATA.date()
-        duration = DATA.duration()
-        skipDays = DATA.skipDays()
+        name = DATA.load_name()
+        date = DATA.load_date()
+        duration = DATA.load_duration()
+        skipDays = DATA.load_skipDays()
 
         events = HISTORY.load_allEvents()
 
