@@ -2,56 +2,49 @@
 
 import datetime
 
-import FILES
-import TIMES
+import DATA
 import HISTORY
-import STATUS
+import TIMES
+
 import PUMP
-
-#PROPERTIES
-
-FILENAME = '/home/pi/CUBE/DATA/schedule.txt'
-ROW_SCHEDULE_ON = 1
-ROW_SKIP_DAYS = 3
-ROW_PUMP_DURATION = 5
 
 #ACTIONS
 
 def pourIfNeeded():
     print("SCHEDULE - POUR IF NEEDED")
 
-    isScheduleOn = int(FILES.loadline(FILENAME,ROW_SCHEDULE_ON))
-    if isScheduleOn == 1:
+    isScheduleEnabled = DATA.load_enabled()
+    if isScheduleEnabled == 1:
 
-	nextPour = STATUS.loadAutomaticPourScheduled()
-	next = TIMES.dateFrom(nextPour)
-	print("SCHEDULE - POUR IF NEEDED - NEXT:")
-	print(next)
-	now = datetime.datetime.now()
-	print("SCHEDULE - POUR IF NEEDED - NOW:")
-	print(now)
+		next = TIMES.dateFrom(DATA.load_date())
+		print("SCHEDULE - POUR IF NEEDED - NEXT:")
+		print(next)
 
-	skipDays = int(FILES.loadline(FILENAME,ROW_SKIP_DAYS))
+		now = datetime.datetime.now()
+		print("SCHEDULE - POUR IF NEEDED - NOW:")
+		print(now)
 
-	if now.date() == next.date() and now.time().hour == next.time().hour and now.time().minute == next.time().minute:
-	    print("SCHEDULE - POUR IF NEEDED - [IT IS TIME!]")
+		skipDays = DATA.load_skipDays()
 
-	    #Check water!
+		if now.date() == next.date() and now.time().hour == next.time().hour and now.time().minute == next.time().minute:
+	    	print("SCHEDULE - POUR IF NEEDED - [IT IS TIME!]")
 
-	    #Pouring...
-	    duration = float(FILES.loadline(FILENAME,ROW_PUMP_DURATION))
-	    HISTORY.saveEventAutomaticPour(duration)
-	    STATUS.saveAutomaticPourLast(TIMES.nowAsString())
-	    PUMP.start(duration)
+	    	#Check water!
 
-	    #Prepare next.
-	    scheduled = next + datetime.timedelta(days=skipDays+1)
-	    STATUS.saveAutomaticPourScheduled(TIMES.stringFrom(scheduled))
+	    	#Pouring...
+	    	HISTORY.save_automaticPour(duration)
+	    	PUMP.start(DATA.load_duration())
 
-	elif now > next:
-	    print("SCHEDULE - POUR IF NEEDED - [NEED TO UPDATE AUTOMATIC_POUR_SCHEDULED DATE]")
-	    while next <= now:
-		next = next + datetime.timedelta(days=skipDays+1)
-	    STATUS.saveAutomaticPourScheduled(TIMES.stringFrom(next))
-	else:
-	    print("SCHEDULE - POUR IF NEEDED - [IT IS NOT TIME YET]")
+	    	#Prepare next.
+	    	scheduled = next + datetime.timedelta(days=skipDays+1)
+	    	DATA.save_date(TIMES.stringFrom(scheduled))
+
+		elif now > next:
+	  		print("SCHEDULE - POUR IF NEEDED - [NEED TO UPDATE AUTOMATIC_POUR_SCHEDULED DATE]")
+	  		
+	  		while next <= now:
+			next = next + datetime.timedelta(days=skipDays+1)
+			DATA.save_date(TIMES.stringFrom(next))
+
+		else:
+	    	print("SCHEDULE - POUR IF NEEDED - [IT IS NOT TIME YET]")

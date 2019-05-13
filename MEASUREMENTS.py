@@ -1,8 +1,9 @@
 #MODULE:MEASUREMENTS
 
-import ULTRASOUND
-import STATUS
+import DATA
 import VOLUME
+
+import ULTRASOUND
 
 #PROPERTIES
 
@@ -14,10 +15,11 @@ DIFF_TOLERANCE = 0.2 #CM
 def measure():
     print("MEASUREMENTS - MEASURE")
     ULTRASOUND.setup()
-
     measurements = []
+
     for x in range (0,NUMBER_OF_MEASUREMENTS):
         measurements.append(ULTRASOUND.getDistance())
+    
     print("MEASUREMENTS - MEASURE - VALUES:")
     print(measurements)
 
@@ -34,9 +36,9 @@ def measure():
     print("MEASUREMENTS - MEASURE - MAX OFFSET = [%.3f]" % maxOffset)
 
     if minOffset > DIFF_TOLERANCE:
-	measure()
+        measure()
     elif maxOffset > DIFF_TOLERANCE:
-	measure()
+        measure()
     else:
-	STATUS.saveDistance(average)
-    	VOLUME.update()
+        DATA.save_distance(average)
+        VOLUME.update()

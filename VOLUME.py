@@ -1,33 +1,38 @@
 #MODULE:VOLUME
 
-import STATUS
+import DATA
+
 import LED
 
 #ACTIONS
 
 def update():
     print("VOLUME - UPDATE")
-    distanceFull = STATUS.loadDistanceFull()
-    distanceEmpty = STATUS.loadDistanceEmpty()
-    distance = STATUS.loadDistance()
+
+    distanceFull = DATA.load_distanceFull()
+    distanceEmpty = DATA.load_distanceEmpty()
+    distance = DATA.load_distance()
 
     range = distanceEmpty - distanceFull
 
     percentage = 0.0
+
     if distance < distanceEmpty:
         diffFromEmpty = distanceEmpty - distance
-	percentage = diffFromEmpty / range
-    print("VOLUME - UPDATE - PERCENTAGE = [%.2f]" % percentage)
+        percentage = diffFromEmpty / range
+        print("VOLUME - UPDATE - PERCENTAGE = [%.2f]" % percentage)
 
-    volumeMax = STATUS.loadVolumeMax()
+    volumeMax = DATA.load_volumeMax()
     volume = volumeMax * percentage
     print("VOLUME - UPDATE - VOLUME = [%d]" % volume)
 
-    STATUS.saveVolume(volume)
-    STATUS.savePercentage(percentage)
+    DATA.save_volume(volume)
+    DATA.save_percentage(percentage)
 
-    warningPercentage = STATUS.loadWarningPercentage()
+    warningPercentage = DATA.load_warningPercentage()
     if percentage < warningPercentage:
-	LED.red()
+	   LED.red()
     else:
-	LED.blue()
+	   LED.blue()
+
+    #UPDATE DAYS LEFT
