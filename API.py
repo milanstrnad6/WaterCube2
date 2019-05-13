@@ -58,11 +58,12 @@ def manualPouring():
 def updateSchedule():
     print("API - UPDATE SCHEDULE")
     if request.method == "POST":
+        enabled = int(request.data.get("enabled"))
         name = request.data.get("name")
         date = request.data.get("date")
         duration = float(request.data.get("duration"))
         skipDays = int(request.data.get("skipDays"))
-        SCHEDULE.update(name,date,duration,skipDays)
+        SCHEDULE.update(enabled,name,date,duration,skipDays)
     return {}
 
 #MAIN

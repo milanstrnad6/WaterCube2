@@ -10,8 +10,9 @@ import PUMP
 
 #ACTIONS
 
-def update(name,date,duration,skipDays):
+def update(enabled,name,date,duration,skipDays):
 	print("SCHEDULE - UPDATE")
+	DATA.save_enabled(enabled)
 	DATA.save_name(name)
 	DATA.save_date(date)
 	DATA.save_duration(duration)
