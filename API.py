@@ -75,6 +75,8 @@ def updateSchedule():
     if request.method == "POST":
         enabled = int(request.data.get("enabled"))
         name = request.data.get("name")
+        print("SCHEDULE NAME....................")
+        print(name)
         date = request.data.get("date")
         ml = int(request.data.get("ml"))
         skipDays = int(request.data.get("skipDays"))
