@@ -32,15 +32,19 @@ def save_automaticPourNotPossible(ml):
     print("HISTORY - SAVE EVENT: AUTOMATIC POUR NOT POSSIBLE")
     saveEvent("automaticPourNotPossible",ml)
 
+def save_automaticPourNotPossibleWithDate(ml,date):
+    print("HISTORY - SAVE EVENT: AUTOMATIC POUR NOT POSSIBLE")
+    saveEvent("automaticPourNotPossible",ml,date)
+
 def save_warningPercentage():
     print("HISTORY - SAVE EVENT: WARNING PERCENTAGE")
     saveEvent("warningPercentage")
 
 #UTILITIES
 
-def saveEvent(type,ml=0):
+def saveEvent(type,ml=0,date=TIMES.nowAsString()):
     data = FILES.load(FILENAME)
-    record = type + "|" + TIMES.nowAsString() + "|" + str(ml) + "\n"
+    record = type + "|" + date + "|" + str(ml) + "\n"
     data.append(record)
     FILES.save(FILENAME,data)
 
