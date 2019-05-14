@@ -65,7 +65,7 @@ def updateSchedule():
         duration = float(request.data.get("duration"))
         skipDays = int(request.data.get("skipDays"))
         SCHEDULE.update(enabled,name,date,duration,skipDays)
-    return {}
+    return {"data":{}}
 
 #MAIN
 
