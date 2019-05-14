@@ -5,6 +5,7 @@ from flask_api import FlaskAPI
 
 import DATA
 import HISTORY
+import SCHEDULE
 
 import PUMP
 
