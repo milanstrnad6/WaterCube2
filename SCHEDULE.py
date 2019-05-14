@@ -39,7 +39,7 @@ def pourIfNeeded():
 	    #Check water!
 
 	    #Pouring...
-	    HISTORY.save_automaticPour(duration)
+	    HISTORY.save_automaticPour(DATA.load_duration())
 	    PUMP.start(DATA.load_duration())
 
 	    #Prepare next.
