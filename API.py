@@ -6,6 +6,7 @@ from flask_api import FlaskAPI
 import DATA
 import HISTORY
 import SCHEDULE
+import CONVERTOR
 
 import PUMP
 
@@ -38,20 +39,35 @@ def getDevice():
 
         name = DATA.load_name()
         date = DATA.load_date()
-        duration = DATA.load_duration()
+        ml = DATA.load_ml()
         skipDays = DATA.load_skipDays()
 
         events = HISTORY.load_allEvents()
 
-    return {"data":{"volumeMax":volumeMax,"warningPercentage":warningPercentage,"warningDaysLeft":warningDaysLeft,"pouringInProgress":pouringInProgress,"percentage":percentage,"volume":volume,"daysLeft":daysLeft,"name":name,"date":date,"duration":duration,"skipDays":skipDays,"events":events}}
+    return {"data":{
+        "volumeMax":volumeMax,
+        "warningPercentage":warningPercentage,
+        "warningDaysLeft":warningDaysLeft,
+        "pouringInProgress":pouringInProgress,
+        "percentage":percentage,
+        "volume":volume,
+        "daysLeft":daysLeft,
+        "name":name,
+        "date":date,
+        "ml":ml,
+        "skipDays":skipDays,
+        "events":events
+    }}
 
 @app.route('/manualPouring/', methods=["POST"])
 def manualPouring():
     print("API - POURING")
     if request.method == "POST":
-	   seconds = float(request.data.get("duration"))
-	   HISTORY.save_manualPour(seconds)
-	   PUMP.start(seconds)
+	   ml = int(request.data.get("ml"))
+	   HISTORY.save_manualPour(ml)
+
+       duration = CONVERTOR.getDurationFrom(ml)
+	   PUMP.start(duration)
 
     return {"data":{}}
 
@@ -62,9 +78,10 @@ def updateSchedule():
         enabled = int(request.data.get("enabled"))
         name = request.data.get("name")
         date = request.data.get("date")
-        duration = float(request.data.get("duration"))
+        ml = int(request.data.get("ml"))
         skipDays = int(request.data.get("skipDays"))
-        SCHEDULE.update(enabled,name,date,duration,skipDays)
+
+        SCHEDULE.update(enabled,name,date,ml,skipDays)
     return {"data":{}}
 
 #MAIN

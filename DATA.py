@@ -27,7 +27,7 @@ FILENAME_SCHEDULE = '/home/pi/CUBE/DATA/schedule.txt'
 ROW_ENABLED = 3
 ROW_NAME = 6
 ROW_DATE = 9
-ROW_DURATION = 11 
+ROW_ML = 11 
 ROW_SKIP_DAYS = 13
 
 #ACTIONS:CUBE
@@ -93,8 +93,8 @@ def load_name():
 def load_date():
     return FILES.loadline(FILENAME_SCHEDULE,ROW_DATE).rstrip()
 
-def load_duration():
-    return float(FILES.loadline(FILENAME_SCHEDULE,ROW_DURATION))
+def load_ml():
+    return int(FILES.loadline(FILENAME_SCHEDULE,ROW_ML))
 
 def load_skipDays():
     return int(FILES.loadline(FILENAME_SCHEDULE,ROW_SKIP_DAYS))
@@ -108,8 +108,8 @@ def save_name(name):
 def save_date(date):
     FILES.saveline(FILENAME_SCHEDULE,ROW_DATE,date)
 
-def save_duration(duration):
-    FILES.saveline(FILENAME_SCHEDULE,ROW_DURATION,str(duration))
+def save_ml(ml):
+    FILES.saveline(FILENAME_SCHEDULE,ROW_ML,str(ml))
 
 def save_skipDays(skipDays):
     FILES.saveline(FILENAME_SCHEDULE,ROW_SKIP_DAYS,str(skipDays))

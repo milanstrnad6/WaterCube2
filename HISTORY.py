@@ -20,13 +20,17 @@ def save_deviceInit():
     saveEvent("deviceInit")
     return TIMES.nowAsString()
 
-def save_manualPour(seconds):
+def save_manualPour(ml):
     print("HISTORY - SAVE EVENT: MANUAL POUR")
-    saveEvent("manualPour",seconds)
+    saveEvent("manualPour",ml)
 
-def save_automaticPour(seconds):
+def save_automaticPour(ml):
     print("HISTORY - SAVE EVENT: AUTOMATIC POUR")
-    saveEvent("automaticPour",seconds)
+    saveEvent("automaticPour",ml)
+
+def save_automaticPourNotPossible(ml):
+    print("HISTORY - SAVE EVENT: AUTOMATIC POUR NOT POSSIBLE")
+    saveEvent("automaticPourNotPossible",ml)
 
 def save_warningPercentage():
     print("HISTORY - SAVE EVENT: WARNING PERCENTAGE")
@@ -34,9 +38,9 @@ def save_warningPercentage():
 
 #UTILITIES
 
-def saveEvent(type,seconds=0):
+def saveEvent(type,ml=0):
     data = FILES.load(FILENAME)
-    record = type + "|" + TIMES.nowAsString() + "|" + str(seconds) + "\n"
+    record = type + "|" + TIMES.nowAsString() + "|" + str(ml) + "\n"
     data.append(record)
     FILES.save(FILENAME,data)
 
