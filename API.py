@@ -63,12 +63,10 @@ def getDevice():
 def manualPouring():
     print("API - POURING")
     if request.method == "POST":
-	   ml = int(request.data.get("ml"))
-	   HISTORY.save_manualPour(ml)
-
-       duration = CONVERTOR.getDurationFrom(ml)
-	   PUMP.start(duration)
-
+        ml = int(request.data.get("ml"))
+        HISTORY.save_manualPour(ml)
+        duration = CONVERTOR.getDurationFrom(ml)
+        PUMP.start(duration)
     return {"data":{}}
 
 @app.route('/updateSchedule/', methods=["POST"])
@@ -80,7 +78,6 @@ def updateSchedule():
         date = request.data.get("date")
         ml = int(request.data.get("ml"))
         skipDays = int(request.data.get("skipDays"))
-
         SCHEDULE.update(enabled,name,date,ml,skipDays)
     return {"data":{}}
 
