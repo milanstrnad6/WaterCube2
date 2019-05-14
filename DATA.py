@@ -100,7 +100,7 @@ def load_skipDays():
     return int(FILES.loadline(FILENAME_SCHEDULE,ROW_SKIP_DAYS))
 
 def save_enabled(enabled):
-    FILES.saveline(FILENAME_SCHEDULE,ROW_ENABLED,int(enabled))
+    FILES.saveline(FILENAME_SCHEDULE,ROW_ENABLED,str(enabled))
 
 def save_name(name):
     FILES.saveline(FILENAME_SCHEDULE,ROW_NAME,name)
