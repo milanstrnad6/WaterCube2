@@ -1,35 +1,31 @@
 #APNS
 
-from flask import Flask
-from flask_pushjack import FlaskAPNS
+from pushjack import APNSClient
 
-# config = {
-#     'APNS_CERTIFICATE': '<path/to/certificate.pem>'
-# }
+# client = APNSClient(certificate='<path/to/certificate.pem>',
+#                     default_error_timeout=10,
+#                     default_expiration_offset=2592000,
+#                     default_batch_size=100,
+#                     default_retries=5)
 
-# app = Flask(__name__)
-# app.config.update(config)
+# token = '<device token>'
+# alert = 'Hello world.'
 
-# client = FlaskAPNS()
-# client.init_app(app)
+# # Send to single device.
+# # NOTE: Keyword arguments are optional.
+# res = client.send(token,
+#                   alert,
+#                   badge='badge count',
+#                   sound='sound to play',
+#                   category='category',
+#                   content_available=True,
+#                   title='Title',
+#                   title_loc_key='t_loc_key',
+#                   title_loc_args='t_loc_args',
+#                   action_loc_key='a_loc_key',
+#                   loc_key='loc_key',
+#                   launch_image='path/to/image.jpg',
+#                   extra={'custom': 'data'})
 
-# with app.app_context():
-#     token = '<device token>'
-
-#     # Send to single device.
-#     res = client.send(token, alert, **options)
-
-#     # List of all tokens sent.
-#     res.tokens
-
-#     # List of any subclassed APNSServerError objects.
-#     res.errors
-
-#     # Dict mapping token => APNSServerError.
-#     res.token_errors
-
-#     # Send to multiple devices.
-#     client.send([token], alert, **options)
-
-#     # Get expired tokens.
-#     expired_tokens = client.get_expired_tokens()
+# # Send to multiple devices by passing a list of tokens.
+# client.send([token], alert, **options)
