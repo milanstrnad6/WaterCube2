@@ -11,10 +11,10 @@ NUMBER_OF_CALIBRATION_MEASUREMENTS = 10
 
 def getMeasurements():
 	ULTRASOUND.setup()
-    measurements = []
-    for x in range (0,NUMBER_OF_MEASUREMENTS):
-        measurements.append(ULTRASOUND.getDistance())
-    return measurements
+	measurements = []
+	for x in range (0,NUMBER_OF_MEASUREMENTS):
+		measurements.append(ULTRASOUND.getDistance())
+	return measurements
 
 #MAIN
 
@@ -26,23 +26,23 @@ for x in range (0,NUMBER_OF_CALIBRATION_MEASUREMENTS):
 	while not acceptable:
 		measurements = getMeasurements()
 		print("CALIBRATION - GET MEASUREMENTS - VALUES:")
-    	print(measurements)
+		print(measurements)
 
 		totalsum = sum(measurements)
-    	count = len(measurements)
-    	average = totalsum / float(count)
-    	print("CALIBRATION - GET MEASUREMENTS - AVERAGE = [%.3f]" % average)
+		count = len(measurements)
+		average = totalsum / float(count)
+		print("CALIBRATION - GET MEASUREMENTS - AVERAGE = [%.3f]" % average)
 
-    	minimum = min(measurements)
-    	maximum = max(measurements)
-    	minOffset = average - minimum
-    	print("CALIBRATION - GET MEASUREMENTS - MIN OFFSET = [%.3f]" % minOffset)
-    	maxOffset = maximum - average
-    	print("CALIBRATION - GET MEASUREMENTS - MAX OFFSET = [%.3f]" % maxOffset)
+		minimum = min(measurements)
+		maximum = max(measurements)
+		minOffset = average - minimum
+		print("CALIBRATION - GET MEASUREMENTS - MIN OFFSET = [%.3f]" % minOffset)
+		maxOffset = maximum - average
+		print("CALIBRATION - GET MEASUREMENTS - MAX OFFSET = [%.3f]" % maxOffset)
 
-    	acceptable = minOffset <= DIFF_TOLERANCE and maxOffset <= DIFF_TOLERANCE
-    	if acceptable:
-    		acceptableMeasurements.append(average)
+		acceptable = minOffset <= DIFF_TOLERANCE and maxOffset <= DIFF_TOLERANCE
+		if acceptable:
+			acceptableMeasurements.append(average)
 
 print("CALIBRATION - ACCEPTABLE MEASUREMENTS:")
 print(acceptableMeasurements)
