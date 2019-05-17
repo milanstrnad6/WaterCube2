@@ -29,16 +29,13 @@ def cbfunc(gpio, level, tick):
 # 	pi.set_mode(ECHO, pigpio.INPUT)
 
 # 	cb = pi.callback(ECHO, pigpio.EITHER_EDGE, cbfunc)
+# 	print(cb)
 
-# 	start = time.time()
-
-# 	while (time.time()-start) < 60:
-#    		pi.gpio_trigger(TRIGGER, 10)
-#    		time.sleep(0.2)
+# 	pi.gpio_trigger(TRIGGER, 10)
+#    	time.sleep(0.2)
 
 # 	cb.cancel() # Cancel callback.
 # 	pi.stop() # Close connection to Pi
-
 
 pi = pigpio.pi() # Connect to local Pi.
 
@@ -46,9 +43,7 @@ pi.set_mode(TRIGGER, pigpio.OUTPUT)
 pi.set_mode(ECHO, pigpio.INPUT)
 
 cb = pi.callback(ECHO, pigpio.EITHER_EDGE, cbfunc)
-
-pi.gpio_trigger(TRIGGER, 10)
-time.sleep(0.2)
+print(cb)
 
 pi.gpio_trigger(TRIGGER, 10)
 time.sleep(0.2)
