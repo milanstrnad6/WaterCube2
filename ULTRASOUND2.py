@@ -10,7 +10,7 @@ ECHO=24
 
 high_tick = None # global to hold high tick.
 
-measurement = 0.0
+global measurement
 
 #ACTIONS
 
