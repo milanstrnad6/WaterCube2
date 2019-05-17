@@ -27,7 +27,7 @@ def getDistance():
 
     #Sending sound for duration 0.00001 seconds.
     IO.output(US_OUT, 1)
-    time.sleep(0.00001) #0.00001
+    time.sleep(0.00001)
     IO.output(US_OUT, 0)
 
     #Prepare properties for measuring time.
@@ -47,14 +47,7 @@ def getDistance():
     #Calculate distance.
     timeElapsed = timeStop - timeStart
     print("timeElapsed = %.10f" % timeElapsed)
-    distance = (timeElapsed * 34300) / 2 # 34300
-    #distance = timeElapsed / 29.1
-    #distance = (timeElapsed / 1000000.0) * 34030 / 2
+    distance = (timeElapsed * 34300) / 2
 
     print("ULTRASOUND - GET DISTANCE... [%.3f CM]" % distance)
     return distance
-
-#MAIN
-
-setup()
-getDistance()

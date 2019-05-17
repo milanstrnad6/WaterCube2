@@ -9,18 +9,18 @@ import ULTRASOUND2
 #PROPERTIES
 
 NUMBER_OF_MEASUREMENTS = 10
-DIFF_TOLERANCE = 0.25 #CM
+DIFF_TOLERANCE = 0.2 #CM
 
 #ACTIONS
 
 def measure():
     print("MEASUREMENTS - MEASURE")
-    #ULTRASOUND.setup()
+    ULTRASOUND.setup()
     measurements = []
 
     for x in range (0,NUMBER_OF_MEASUREMENTS):
-        #distance = ULTRASOUND.getDistance()
-        distance = ULTRASOUND2.getDistance()
+        distance = ULTRASOUND.getDistance()
+        #distance = ULTRASOUND2.getDistance()
         measurements.append(distance)
     
     print("MEASUREMENTS - MEASURE - VALUES:")
@@ -44,7 +44,4 @@ def measure():
         measure()
     else:
         DATA.save_distance(average)
-        VOLUME.update()    
-
-    # DATA.save_distance(average)
-    # VOLUME.update()
+        VOLUME.update()
