@@ -17,20 +17,20 @@ def load_allEvents():
 
 def save_deviceInit():
     print("HISTORY - SAVE EVENT: DEVICE INIT")
-    saveEvent("deviceInit",0,TIMES.nowAsString())
+    saveEvent("deviceInit",0,TIMES.now())
     return TIMES.nowAsString()
 
 def save_manualPour(ml):
     print("HISTORY - SAVE EVENT: MANUAL POUR")
-    saveEvent("manualPour",ml,TIMES.nowAsString())
+    saveEvent("manualPour",ml,TIMES.now())
 
 def save_automaticPour(ml):
     print("HISTORY - SAVE EVENT: AUTOMATIC POUR")
-    saveEvent("automaticPour",ml,TIMES.nowAsString())
+    saveEvent("automaticPour",ml,TIMES.now())
 
 def save_automaticPourNotPossible(ml):
     print("HISTORY - SAVE EVENT: AUTOMATIC POUR NOT POSSIBLE")
-    saveEvent("automaticPourNotPossible",ml,TIMES.nowAsString())
+    saveEvent("automaticPourNotPossible",ml,TIMES.now())
 
 def save_automaticPourNotPossibleWithDate(ml,date):
     print("HISTORY - SAVE EVENT: AUTOMATIC POUR NOT POSSIBLE")
@@ -38,13 +38,13 @@ def save_automaticPourNotPossibleWithDate(ml,date):
 
 def save_warningPercentage():
     print("HISTORY - SAVE EVENT: WARNING PERCENTAGE")
-    saveEvent("warningPercentage",0,TIMES.nowAsString())
+    saveEvent("warningPercentage",0,TIMES.now())
 
 #UTILITIES
 
 def saveEvent(type,ml,date):
     data = FILES.load(FILENAME)
-    record = type + "|" + date + "|" + str(ml) + "\n"
+    record = type + "|" + TIMES.stringFrom(date) + "|" + str(ml) + "\n"
     data.append(record)
     FILES.save(FILENAME,data)
 

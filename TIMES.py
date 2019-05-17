@@ -8,6 +8,9 @@ FORMAT = "%Y-%m-%d %H:%M"
 
 #ACTIONS
 
+def now():
+	return datetime.datetime.now()
+
 def nowAsString():
     return datetime.datetime.now().strftime(FORMAT)
 
