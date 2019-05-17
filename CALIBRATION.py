@@ -1,6 +1,7 @@
 #CALIBRATION
 
 import ULTRASOUND
+import ULTRASOUND2
 
 #PROPERTIES
 
@@ -12,10 +13,12 @@ NUMBER_OF_CALIBRATION_MEASUREMENTS = 10
 #UTILITIES
 
 def getMeasurements():
-	ULTRASOUND.setup()
+	#ULTRASOUND.setup()
 	measurements = []
 	for x in range (0,NUMBER_OF_MEASUREMENTS):
-		measurements.append(ULTRASOUND.getDistance())
+		#distance = ULTRASOUND.getDistance()
+		distance = ULTRASOUND2.getDistance()
+		measurements.append(distance)
 	return measurements
 
 #MAIN
