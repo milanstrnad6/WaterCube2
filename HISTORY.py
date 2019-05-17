@@ -42,7 +42,7 @@ def save_warningPercentage():
 
 #UTILITIES
 
-def saveEvent(type,ml=0,date):
+def saveEvent(type,ml,date):
     data = FILES.load(FILENAME)
     record = type + "|" + date + "|" + str(ml) + "\n"
     data.append(record)
