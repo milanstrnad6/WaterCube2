@@ -33,13 +33,13 @@ def pourIfNeeded():
 		print(now)
 
 		skipDays = DATA.load_skipDays()
+		ml = DATA.load_ml()
 
 		if now.date() == next.date() and now.time().hour == next.time().hour and now.time().minute == next.time().minute:
 			print("SCHEDULE - POUR IF NEEDED - [IT IS TIME!]")
 
 			#Check water!
 
-			ml = DATA.load_ml()
 			volume = DATA.load_volume()
 
 			if volume >= ml:
