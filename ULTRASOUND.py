@@ -54,4 +54,5 @@ def getDistance():
 
 #MAIN
 
+setup()
 getDistance()
