@@ -41,5 +41,4 @@ def measure():
         measure()
     else:
         DATA.save_distance(average)
-        VOLUME.update()
-        return average
+        VOLUME.update()    

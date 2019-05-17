@@ -23,7 +23,7 @@ def getDistance():
     print("ULTRASOUND - GET DISTANCE...")
 
     #For sure.
-    time.sleep(0.015)
+    time.sleep(0.02)
 
     #Sending sound for duration 0.00001 seconds.
     IO.output(US_OUT, 1)
