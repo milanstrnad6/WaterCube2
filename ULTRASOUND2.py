@@ -10,8 +10,6 @@ ECHO=24
 
 high_tick = None # global to hold high tick.
 
-global measurement
-
 #ACTIONS
 
 def cbfunc(gpio, level, tick):
