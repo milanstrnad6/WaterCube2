@@ -27,7 +27,7 @@ def getDistance():
 
     #Sending sound for duration 0.00001 seconds.
     IO.output(US_OUT, 1)
-    time.sleep(0.0001) #0.00001
+    time.sleep(0.001) #0.00001
     IO.output(US_OUT, 0)
 
     #Prepare properties for measuring time.
