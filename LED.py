@@ -13,6 +13,7 @@ LED_RED = 16
 def setup():
     print("LED - SETUP")
     IO.setmode(IO.BCM)
+    IO.setwarnings(0)
     IO.setup(LED_BLUE, IO.OUT)
     IO.setup(LED_RED, IO.OUT)
 

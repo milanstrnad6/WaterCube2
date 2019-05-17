@@ -30,6 +30,7 @@ def update():
     DATA.save_percentage(percentage)
 
     warningPercentage = DATA.load_warningPercentage()
+    LED.setup()
     if percentage < warningPercentage:
 	   LED.red()
     else:
