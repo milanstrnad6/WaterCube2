@@ -47,8 +47,11 @@ pi.set_mode(ECHO, pigpio.INPUT)
 
 cb = pi.callback(ECHO, pigpio.EITHER_EDGE, cbfunc)
 
-time.sleep(0.2)
 pi.gpio_trigger(TRIGGER, 10)
+time.sleep(0.2)
+
+pi.gpio_trigger(TRIGGER, 10)
+time.sleep(0.2)
 
 cb.cancel() # Cancel callback.
 pi.stop() # Close connection to Pi
