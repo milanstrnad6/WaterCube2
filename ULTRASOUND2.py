@@ -36,7 +36,7 @@ def getDistance():
 	cb = pi.callback(ECHO, pigpio.EITHER_EDGE, cbfunc)
 
 	pi.gpio_trigger(TRIGGER, 10)
-	time.sleep(0.1)
+	time.sleep(0.025)
 
 	cb.cancel() # Cancel callback.
 	pi.stop() # Close connection to Pi
