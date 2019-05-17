@@ -17,20 +17,20 @@ def load_allEvents():
 
 def save_deviceInit():
     print("HISTORY - SAVE EVENT: DEVICE INIT")
-    saveEvent("deviceInit")
+    saveEvent("deviceInit",0,TIMES.nowAsString())
     return TIMES.nowAsString()
 
 def save_manualPour(ml):
     print("HISTORY - SAVE EVENT: MANUAL POUR")
-    saveEvent("manualPour",ml)
+    saveEvent("manualPour",ml,TIMES.nowAsString())
 
 def save_automaticPour(ml):
     print("HISTORY - SAVE EVENT: AUTOMATIC POUR")
-    saveEvent("automaticPour",ml)
+    saveEvent("automaticPour",ml,TIMES.nowAsString())
 
 def save_automaticPourNotPossible(ml):
     print("HISTORY - SAVE EVENT: AUTOMATIC POUR NOT POSSIBLE")
-    saveEvent("automaticPourNotPossible",ml)
+    saveEvent("automaticPourNotPossible",ml,TIMES.nowAsString())
 
 def save_automaticPourNotPossibleWithDate(ml,date):
     print("HISTORY - SAVE EVENT: AUTOMATIC POUR NOT POSSIBLE")
@@ -38,11 +38,11 @@ def save_automaticPourNotPossibleWithDate(ml,date):
 
 def save_warningPercentage():
     print("HISTORY - SAVE EVENT: WARNING PERCENTAGE")
-    saveEvent("warningPercentage")
+    saveEvent("warningPercentage",0,TIMES.nowAsString())
 
 #UTILITIES
 
-def saveEvent(type,ml=0,date=TIMES.nowAsString()):
+def saveEvent(type,ml=0,date):
     data = FILES.load(FILENAME)
     record = type + "|" + date + "|" + str(ml) + "\n"
     data.append(record)

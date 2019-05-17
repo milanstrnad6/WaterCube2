@@ -30,6 +30,11 @@ ROW_DATE = 9
 ROW_ML = 11 
 ROW_SKIP_DAYS = 13
 
+#PROPERTIES:NOTIFICATIONS
+
+FILENAME_NOTIFICATIONS = '/home/pi/CUBE/DATA/notifications.txt'
+ROW_TOKEN = 3
+
 #ACTIONS:CUBE
 
 def load_waitForInternetConnection():
@@ -113,3 +118,11 @@ def save_ml(ml):
 
 def save_skipDays(skipDays):
     FILES.saveline(FILENAME_SCHEDULE,ROW_SKIP_DAYS,str(skipDays))
+
+#ACTIONS:NOTIFICATIONS
+
+def load_token():
+    return FILES.loadline(FILENAME_NOTIFICATIONS,ROW_TOKEN)
+
+def save_token(token):
+    FILES.saveline(FILENAME_NOTIFICATIONS,ROW_TOKEN,token)

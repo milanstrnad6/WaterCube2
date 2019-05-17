@@ -1,7 +1,7 @@
 #MODULE:CONVERTOR
 
 def getDurationFrom(ml):
-	switcher = {
+	switch = {
 		5: 0.5,
 		10: 1.0,
 		15: 1.5,
@@ -23,4 +23,4 @@ def getDurationFrom(ml):
 		95: 9.5,
 		100: 10.0
 	}
-	return switcher.get(ml, "Invalid ml")
+	return switch.get(ml, "Invalid ml")

@@ -81,6 +81,13 @@ def updateSchedule():
         SCHEDULE.update(enabled,name,date,ml,skipDays)
     return {"data":{}}
 
+@app.route('/saveToken/', methods=["POST"])
+    print("API - SAVE TOKEN")
+    if request.method == "TOKEN":
+        token = request.data.get("token")
+        DATA.save_token(token)
+    return {"data":{}}
+
 #MAIN
 
 if __name__ == "__main__":
