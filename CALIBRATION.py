@@ -11,7 +11,9 @@ NUMBER_OF_CALIBRATION_MEASUREMENTS = 10
 cMeasurements = []
 
 for x in range (0,NUMBER_OF_CALIBRATION_MEASUREMENTS):
-    cMeasurements.append(MEASUREMENTS.measure())
+	cMeasurement = MEASUREMENTS.measure()
+	print("------> C MEASUREMENT %.3f" % cMeasurement)
+    cMeasurements.append(cMeasurement)
 
 totalsum = sum(cMeasurements)
 count = len(cMeasurements)
