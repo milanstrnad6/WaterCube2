@@ -33,7 +33,7 @@ start = time.time()
 
 while (time.time()-start) < 60:
    pi.gpio_trigger(TRIGGER, 10)
-   time.sleep(0.1)
+   time.sleep(0.2)
 
 cb.cancel() # Cancel callback.
 pi.stop() # Close connection to Pi
