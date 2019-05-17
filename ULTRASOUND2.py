@@ -8,12 +8,15 @@ import time
 TRIGGER=18
 ECHO=24
 
-high_tick = None # global to hold high tick.
+high_tick = None # Global to hold high tick
+measurement = 0.0
 
 #ACTIONS
 
 def cbfunc(gpio, level, tick):
 	global high_tick
+	global measurement
+
 	if level == 0: # echo line changed from high to low.
 		if high_tick is not None:
 			echo = pigpio.tickDiff(high_tick, tick)
