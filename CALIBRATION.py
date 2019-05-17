@@ -8,13 +8,13 @@ NUMBER_OF_CALIBRATION_MEASUREMENTS = 10
 
 #MAIN
 
-measurements = []
+cMeasurements = []
 
 for x in range (0,NUMBER_OF_CALIBRATION_MEASUREMENTS):
-    measurements.append(MEASUREMENTS.measure())
+    cMeasurements.append(MEASUREMENTS.measure())
 
-totalsum = sum(measurements)
-count = len(measurements)
+totalsum = sum(cMeasurements)
+count = len(cMeasurements)
 
 average = totalsum / float(count)
 print("CALIBRATION - DISTANCE = [%.3f]" % average)
