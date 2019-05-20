@@ -46,7 +46,6 @@ def getDistance():
 
     #Calculate distance.
     timeElapsed = timeStop - timeStart
-    print("timeElapsed = %.10f" % timeElapsed)
     distance = (timeElapsed * 34300) / 2
 
     print("ULTRASOUND - GET DISTANCE... [%.3f CM]" % distance)
