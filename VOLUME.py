@@ -1,7 +1,6 @@
 #MODULE:VOLUME
 
 import DATA
-import APNS
 
 import LED
 
