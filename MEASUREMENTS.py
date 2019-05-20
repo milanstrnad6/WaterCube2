@@ -4,7 +4,6 @@ import DATA
 import VOLUME
 
 import ULTRASOUND
-import ULTRASOUND2
 
 #PROPERTIES
 
@@ -20,7 +19,6 @@ def measure():
 
     for x in range (0,NUMBER_OF_MEASUREMENTS):
         distance = ULTRASOUND.getDistance()
-        #distance = ULTRASOUND2.getDistance()
         measurements.append(distance)
     
     print("MEASUREMENTS - MEASURE - VALUES:")

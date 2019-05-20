@@ -38,8 +38,6 @@ def pourIfNeeded():
 		if now.date() == next.date() and now.time().hour == next.time().hour and now.time().minute == next.time().minute:
 			print("SCHEDULE - POUR IF NEEDED - [IT IS TIME!]")
 
-			#Check water!
-
 			volume = DATA.load_volume()
 
 			if volume >= ml:
