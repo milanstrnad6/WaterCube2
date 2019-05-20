@@ -35,7 +35,5 @@ res = client.send(token,
                   launch_image='path/to/image.jpg',
                   extra={'custom': 'data'})
 
-
-
 # Send to multiple devices by passing a list of tokens.
 #client.send([token], alert, **options)

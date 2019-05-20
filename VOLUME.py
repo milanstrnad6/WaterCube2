@@ -1,6 +1,7 @@
 #MODULE:VOLUME
 
 import DATA
+import APNS
 
 import LED
 
@@ -30,10 +31,12 @@ def update():
     DATA.save_percentage(percentage)
 
     warningPercentage = DATA.load_warningPercentage()
+    shouldSend = DATA.load_shouldSend()
+
     LED.setup()
     if percentage < warningPercentage:
-	   LED.red()
+        LED.red()
     else:
-	   LED.blue()
+        LED.blue()
 
     #UPDATE DAYS LEFT

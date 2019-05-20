@@ -32,8 +32,9 @@ ROW_SKIP_DAYS = 13
 
 #PROPERTIES:NOTIFICATIONS
 
-FILENAME_NOTIFICATIONS = '/home/pi/CUBE/DATA/notification.txt'
+FILENAME_NOTIFICATION = '/home/pi/CUBE/DATA/notification.txt'
 ROW_TOKEN = 3
+ROW_SHOULD_SEND = 6
 
 #ACTIONS:CUBE
 
@@ -122,7 +123,13 @@ def save_skipDays(skipDays):
 #ACTIONS:NOTIFICATIONS
 
 def load_token():
-    return FILES.loadline(FILENAME_NOTIFICATIONS,ROW_TOKEN)
+    return FILES.loadline(FILENAME_NOTIFICATION,ROW_TOKEN)
+
+def load_shouldSend():
+    return int(FILES.loadline(FILENAME_NOTIFICATION,ROW_SHOULD_SEND))
 
 def save_token(token):
-    FILES.saveline(FILENAME_NOTIFICATIONS,ROW_TOKEN,token)
+    FILES.saveline(FILENAME_NOTIFICATION,ROW_TOKEN,token)
+
+def save_shouldSend(shouldSend):
+    FILES.saveline(FILENAME_NOTIFICATION,ROW_SHOULD_SEND,str(shouldSend))
