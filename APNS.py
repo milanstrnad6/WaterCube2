@@ -18,7 +18,7 @@ def sendNotification():
 	print(token)
 	alert = 'Water level below 20%, please refill.'
 
-	tokenOK = '<' + token '>'
+	tokenOK = '<' + token + '>'
 
 	# Send to single device.
 	# NOTE: Keyword arguments are optional.
