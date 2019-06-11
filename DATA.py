@@ -123,7 +123,7 @@ def save_skipDays(skipDays):
 #ACTIONS:NOTIFICATIONS
 
 def load_token():
-    return FILES.loadline(FILENAME_NOTIFICATION,ROW_TOKEN)
+    return FILES.loadline(FILENAME_NOTIFICATION,ROW_TOKEN).rstrip()
 
 def load_shouldSend():
     return int(FILES.loadline(FILENAME_NOTIFICATION,ROW_SHOULD_SEND))
