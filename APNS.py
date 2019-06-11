@@ -18,9 +18,25 @@ def sendNotification():
 	print(token)
 	alert = 'Water level below 20%, please refill.'
 
+	tokenOK = '<' + token '>'
+
 	# Send to single device.
 	# NOTE: Keyword arguments are optional.
-	res = client.send(token,alert,badge='badge count',sound='sound to play',category='category',content_available=True,title='WARNING',title_loc_key='t_loc_key',title_loc_args='t_loc_args',action_loc_key='a_loc_key',loc_key='loc_key',launch_image='path/to/image.jpg',extra={'custom': 'data'})
+	res = client.send(
+		tokenOK,
+		alert,
+		badge='badge count',
+		sound='sound to play',
+		category='category',
+		content_available=True,
+		title='WARNING',
+		title_loc_key='t_loc_key',
+		title_loc_args='t_loc_args',
+		action_loc_key='a_loc_key',
+		loc_key='loc_key',
+		launch_image='path/to/image.jpg',
+		extra={'custom': 'data'}
+	)
 
 	# Send to multiple devices by passing a list of tokens.
 	#client.send([token], alert, **options)
