@@ -1,6 +1,7 @@
 #APNS
 
 from pushjack import APNSClient
+from pushjack import APNSSandboxClient
 
 import DATA
 
@@ -12,7 +13,7 @@ CERTIFICATE = '/home/pi/CUBE/DATA/ccc.pem'
 #MAIN
 
 def sendNotification():
-	client = APNSClient(certificate=CERTIFICATE,default_error_timeout=10,default_expiration_offset=2592000,default_batch_size=100,default_retries=5)
+	client = APNSSandboxClient(certificate=CERTIFICATE,default_error_timeout=10,default_expiration_offset=2592000,default_batch_size=100,default_retries=5)
 
 	token = DATA.load_token()
 	print("TOKEN --> ")
