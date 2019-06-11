@@ -39,8 +39,8 @@ def sendNotification():
 		extra={'custom': 'data'}
 	)
 
-	res.tokens
-	res.errors
-	res.token_errors
+	print(res.tokens)
+	print(res.errors)
+	print(res.token_errors)
 
 sendNotification()
