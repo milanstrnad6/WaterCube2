@@ -39,7 +39,8 @@ def sendNotification():
 		extra={'custom': 'data'}
 	)
 
-	# Send to multiple devices by passing a list of tokens.
-	#client.send([token], alert, **options)
+	res.tokens
+	res.errors
+	res.token_errors
 
 sendNotification()
