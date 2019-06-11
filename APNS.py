@@ -6,7 +6,7 @@ import DATA
 
 #PROPERTIES
 
-CERTIFICATE = '</home/pi/CUBE/DATA/certificate.pem>'
+CERTIFICATE = '</home/pi/CUBE/DATA/pushcert.pem>'
 
 #MAIN
 
@@ -14,6 +14,8 @@ sendNotification():
 	client = APNSClient(certificate=CERTIFICATE,default_error_timeout=10,default_expiration_offset=2592000,default_batch_size=100,default_retries=5)
 
 	token = DATA.load_token()
+	print("TOKEN --> ")
+	print(token)
 	alert = 'Water level below 20%, please refill.'
 
 	# Send to single device.
@@ -23,3 +25,4 @@ sendNotification():
 	# Send to multiple devices by passing a list of tokens.
 	#client.send([token], alert, **options)
 
+sendNotification()
