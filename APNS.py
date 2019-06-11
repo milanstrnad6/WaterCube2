@@ -6,7 +6,7 @@ import DATA
 
 #PROPERTIES
 
-CERTIFICATE = '</home/pi/CUBE/DATA/pushcert.pem>'
+CERTIFICATE = '/home/pi/CUBE/DATA/pushcert.pem'
 
 #MAIN
 
