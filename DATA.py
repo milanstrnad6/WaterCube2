@@ -94,7 +94,7 @@ def load_enabled():
     return int(FILES.loadline(FILENAME_SCHEDULE,ROW_ENABLED))
 
 def load_name():
-    return FILES.loadline(FILENAME_SCHEDULE,ROW_NAME)
+    return FILES.loadline(FILENAME_SCHEDULE,ROW_NAME).rstrip()
 
 def load_date():
     return FILES.loadline(FILENAME_SCHEDULE,ROW_DATE).rstrip()
@@ -109,7 +109,7 @@ def save_enabled(enabled):
     FILES.saveline(FILENAME_SCHEDULE,ROW_ENABLED,str(enabled))
 
 def save_name(name):
-    FILES.saveline(FILENAME_SCHEDULE,ROW_NAME,name)
+    FILES.saveline(FILENAME_SCHEDULE,ROW_NAME,name.rstrip())
 
 def save_date(date):
     FILES.saveline(FILENAME_SCHEDULE,ROW_DATE,date)
