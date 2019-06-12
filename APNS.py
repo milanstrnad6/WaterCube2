@@ -16,16 +16,12 @@ def sendNotification():
 	client = APNSSandboxClient(certificate=CERTIFICATE,default_error_timeout=10,default_expiration_offset=2592000,default_batch_size=100,default_retries=5)
 
 	token = DATA.load_token()
-	print("TOKEN --> ")
-	print(token)
 	alert = 'Water level below 20%, please refill.'
-
-	tokenOK = token
 
 	# Send to single device.
 	# NOTE: Keyword arguments are optional.
 	res = client.send(
-		tokenOK,
+		token,
 		alert,
 		badge='badge count',
 		sound='sound to play',

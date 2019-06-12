@@ -86,8 +86,6 @@ def saveToken():
     print("API - SAVE TOKEN")
     if request.method == "POST":
         token = request.data.get("token")
-        print("token =")
-        print(token)
         DATA.save_token(token)
     return {"data":{}}
 
