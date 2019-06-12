@@ -14,7 +14,7 @@ import LED
 
 #PROPERTIES
 
-BOOTING_EXTRATIME = 2 #seconds
+BOOTING_EXTRATIME = 5 #seconds
 WAIT_FOR_NEXT_CHECK = 2 #seconds
 
 #ACTIONS
