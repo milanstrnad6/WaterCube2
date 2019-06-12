@@ -12,6 +12,8 @@ def save(filename,data):
 
 def loadline(filename,index):
     data = load(filename)
+    print("LOADLINE DATA =")
+    print(data)
     return data[index]
 
 def saveline(filename,index,text):
