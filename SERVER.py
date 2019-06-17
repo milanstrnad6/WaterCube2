@@ -10,7 +10,7 @@ import DATA
 def boot():
     duration = DATA.load_waitForInternetConnection()
     time.sleep(duration)
-    SUB.call(['/home/pi/CUBE/serverStart.sh'])
+    SUB.call(['/home/pi/CUBE3/WaterCube2/serverStart.sh'])
 
 #MAIN
 
