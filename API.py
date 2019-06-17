@@ -83,7 +83,7 @@ def updateSchedule():
 
 @app.route('/saveToken/', methods=["POST"])
 def saveToken():
-    print("API - SAVE TOKEN")
+    print("API - SAVE TOKEN XX")
     if request.method == "POST":
         print("SAVE TOKEN, GET FROM REQUEST = ")
         token = request.data.get("token")
