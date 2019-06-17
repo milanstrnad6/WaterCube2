@@ -85,7 +85,9 @@ def updateSchedule():
 def saveToken():
     print("API - SAVE TOKEN")
     if request.method == "POST":
+        print("SAVE TOKEN, GET FROM REQUEST = ")
         token = request.data.get("token")
+        print(token)
         DATA.save_token(token)
     return {"data":{}}
 
