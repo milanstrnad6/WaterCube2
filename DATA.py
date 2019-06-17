@@ -129,6 +129,8 @@ def load_shouldSend():
     return int(FILES.loadline(FILENAME_NOTIFICATION,ROW_SHOULD_SEND).rstrip())
 
 def save_token(token):
+    print("SAVE TOKEN = ")
+    print(token)
     FILES.saveline(FILENAME_NOTIFICATION,ROW_TOKEN,token.rstrip())
 
 def save_shouldSend(shouldSend):
