@@ -29,8 +29,7 @@ def bootBlinking(duration):
         off()
     blue()
     red()
-    time.sleep(1)
-    off()
+    time.sleep(2)
 
 #ACTIONS
 
