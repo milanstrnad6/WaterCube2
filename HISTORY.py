@@ -5,7 +5,7 @@ import TIMES
 
 #PROPERTIES
 
-FILENAME = '/home/pi/CUBE/DATA/history.txt'
+FILENAME = '/home/pi/CUBE3/WaterCube2/DATA/history.txt'
 
 #ACTIONS: LOAD
 
