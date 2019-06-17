@@ -15,8 +15,8 @@ CERTIFICATE = '/home/pi/CUBE3/WaterCube2/DATA/ccc.pem'
 
 def sendNotification():
 	print("SEND NOTIFICATION...............................................")
-	time.sleep(5)
-	print("SEND NOTIFICATION...............................................REALLY NOW")
+	# time.sleep(5)
+	# print("SEND NOTIFICATION...............................................REALLY NOW")
 
 	token = DATA.load_token()
 	alert = 'Bonsai: Water level below 20%, please refill.'
