@@ -38,5 +38,5 @@ def sendNotification():
 		extra={'custom': 'data'}
 	)
 
-	print("SENDING FINISHEEEEEED")
-	DATA.save_sending(0)
+	# print("SENDING FINISHEEEEEED")
+	# DATA.save_sending(0)
