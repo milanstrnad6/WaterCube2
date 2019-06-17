@@ -41,6 +41,10 @@ def sendNotification():
 		# extra={'custom': 'data'}
 	)
 
+	print(res.tokens)
+	print(res.errors)
+	print(res.token_errors)
+
 	DATA.save_shouldSend(0)
 
 	# print("SENDING FINISHEEEEEED")
