@@ -23,10 +23,14 @@ def bootBlinking(duration):
     print("LED - BOOT BLINKING...")
     off()
     for x in range (0,duration):
-	time.sleep(0.5)
-	red()
-	time.sleep(0.5)
-	off()
+        time.sleep(0.5)
+        red()
+        time.sleep(0.5)
+        off()
+    blue()
+    red()
+    time.sleep(0.2)
+    off()
 
 #ACTIONS
 
