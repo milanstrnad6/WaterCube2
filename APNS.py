@@ -27,12 +27,12 @@ def sendNotification():
 	# NOTE: Keyword arguments are optional.
 	res = client.send(
 		token,
-		alert
-		# badge='badge count',
-		# sound='sound to play',
+		alert,
+		badge='1',
+		sound='sound to play',
 		# category='category',
 		# content_available=True,
-		# title='WARNING',
+		title='WARNING'
 		# title_loc_key='t_loc_key',
 		# title_loc_args='t_loc_args',
 		# action_loc_key='a_loc_key',
