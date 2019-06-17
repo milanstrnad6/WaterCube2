@@ -15,10 +15,10 @@ CERTIFICATE = '/home/pi/CUBE3/WaterCube2/DATA/ccc.pem'
 def sendNotification():
 	print("SEND NOTIFICATION...............................................")
 
-	client = APNSSandboxClient(certificate=CERTIFICATE,default_error_timeout=15,default_expiration_offset=2592000,default_batch_size=100,default_retries=10)
-
 	token = DATA.load_token()
 	alert = 'Bonsai: Water level below 20%, please refill.'
+
+	client = APNSSandboxClient(certificate=CERTIFICATE,default_error_timeout=20,default_expiration_offset=2592000,default_batch_size=100,default_retries=15)
 
 	# Send to single device.
 	# NOTE: Keyword arguments are optional.
