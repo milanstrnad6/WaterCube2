@@ -32,5 +32,5 @@ def start(duration):
     time.sleep(duration)
     IO.output(PUMP, OFF)
     # print("PUMP OFF .. SEND NOTIFICATION ----------------------------------------")
-    APNS.sendNotification()
+    # APNS.sendNotification()
     
