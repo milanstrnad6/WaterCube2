@@ -3,6 +3,8 @@
 #ACTIONS
 
 def load(filename):
+    print("LOAD FILE NAME = ")
+    print(filename)
     with open(filename, 'r') as file:
 	return file.readlines()
 
