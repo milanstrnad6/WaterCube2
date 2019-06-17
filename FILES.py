@@ -12,6 +12,9 @@ def save(filename,data):
 
 def loadline(filename,index):
     data = load(filename)
+    print("[[[ LODLINE - DATA = ")
+    print(data)
+    print("]]]")
     return data[index]
 
 def saveline(filename,index,text):
