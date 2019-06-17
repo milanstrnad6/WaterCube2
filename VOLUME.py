@@ -31,14 +31,14 @@ def update():
     DATA.save_percentage(percentage)
 
     warningPercentage = DATA.load_warningPercentage()
-    shouldSend = DATA.load_shouldSend()
 
     LED.setup()
     if percentage < warningPercentage:
         LED.red()
-        shouldSend = DATA.load_shouldSend()
         print("********************************************************** SHOULD SEND = ")
         print(shouldSend)
+
+        shouldSend = DATA.load_shouldSend()
         if shouldSend:
             print("********************************************************** SEND NOTIF")
     
