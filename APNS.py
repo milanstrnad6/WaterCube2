@@ -29,7 +29,7 @@ def sendNotification():
 		sound='sound to play',
 		category='category',
 		content_available=True,
-		title='WARNING',
+		title='WARNING - CUBE: Bonsai',
 		title_loc_key='t_loc_key',
 		title_loc_args='t_loc_args',
 		action_loc_key='a_loc_key',
