@@ -40,6 +40,7 @@ def update():
         print("SHOULD SEND = ")
         print(shouldSend)
         if shouldSend:
+            print("********************************************************** SEND NOTIF")
             DATA.save_shouldSend(0)
             APNS.sendNotification()
     else:
