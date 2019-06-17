@@ -37,19 +37,19 @@ def update():
     if percentage < warningPercentage:
         LED.red()
         shouldSend = DATA.load_shouldSend()
-        print("SHOULD SEND = ")
+        print("********************************************************** SHOULD SEND = ")
         print(shouldSend)
         if shouldSend:
             print("********************************************************** SEND NOTIF")
-            DATA.save_shouldSend(0)
-
+    
             sending = DATA.load_sending()
             if not sending:
                 DATA.save_sending(1)
                 APNS.sendNotification()
+                DATA.save_shouldSend(0)
     else:
         if percentage > 0.5:
-            print("SHOULD SEND SET TO 1")
+            print("********************************************************** SHOULD SEND SET TO 1")
             DATA.save_shouldSend(1)
         LED.blue()
 
