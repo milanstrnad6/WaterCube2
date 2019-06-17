@@ -3,8 +3,6 @@
 #ACTIONS
 
 def load(filename):
-    print("LOAD FILE NAME = ")
-    print(filename)
     with open(filename, 'r') as file:
 	return file.readlines()
 
@@ -14,9 +12,6 @@ def save(filename,data):
 
 def loadline(filename,index):
     data = load(filename)
-    print("[[[ LODLINE - DATA = ")
-    print(data)
-    print("]]]")
     return data[index]
 
 def saveline(filename,index,text):
