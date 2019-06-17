@@ -3,6 +3,8 @@
 import RPi.GPIO as IO
 import time
 
+import APNS
+
 #PROPERTIES
 
 PUMP = 12
@@ -29,4 +31,6 @@ def start(duration):
     IO.output(PUMP, ON)
     time.sleep(duration)
     IO.output(PUMP, OFF)
+
+    APNS.sendNotifiaction()
     

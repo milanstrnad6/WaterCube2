@@ -49,7 +49,7 @@ def update():
             # if not sending:
                 # DATA.save_sending(1)
             
-            APNS.sendNotification()
+            # APNS.sendNotification()
                 
     else:
         if percentage > 0.5:
