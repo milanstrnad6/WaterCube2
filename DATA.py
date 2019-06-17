@@ -35,6 +35,7 @@ ROW_SKIP_DAYS = 13
 FILENAME_NOTIFICATION = '/home/pi/CUBE3/WaterCube2/DATA/notification.txt'
 ROW_TOKEN = 3
 ROW_SHOULD_SEND = 6
+ROW_SENDING = 9
 
 #ACTIONS:CUBE
 
@@ -128,10 +129,16 @@ def load_token():
 def load_shouldSend():
     return int(FILES.loadline(FILENAME_NOTIFICATION,ROW_SHOULD_SEND).rstrip())
 
+def load_sending():
+    return int(FILES.loadline(FILENAME_NOTIFICATION,ROW_SENDING).rstrip())
+
 def save_token(token):
     print("DATA - SAVE TOKEN = ")
     print(token)
     FILES.saveline(FILENAME_NOTIFICATION,ROW_TOKEN,token.rstrip())
 
 def save_shouldSend(shouldSend):
-    FILES.saveline(FILENAME_NOTIFICATION,ROW_SHOULD_SEND,str(shouldSend))
+    FILES.saveline(FILENAME_NOTIFICATION,ROW_SHOULD_SEND,str(shouldSend).rstrip())
+
+def save_sending(sending):
+    FILES.saveline(FILENAME_NOTIFICATION,ROW_SENDING,str(sending).rstrip())
