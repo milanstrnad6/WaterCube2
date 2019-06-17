@@ -40,15 +40,15 @@ def sendNotification():
 		alert,
 		badge='1',
 		sound='sound to play',
-		# category='category',
-		# content_available=True,
+		category='category',
+		content_available=True,
 		title='WARNING'
-		# title_loc_key='t_loc_key',
-		# title_loc_args='t_loc_args',
-		# action_loc_key='a_loc_key',
-		# loc_key='loc_key',
-		# launch_image='path/to/image.jpg',
-		# extra={'custom': 'data'}
+		title_loc_key='t_loc_key',
+		title_loc_args='t_loc_args',
+		action_loc_key='a_loc_key',
+		loc_key='loc_key',
+		launch_image='path/to/image.jpg',
+		extra={'custom': 'data'}
 	)
 
 	print(res.errors)
