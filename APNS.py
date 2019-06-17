@@ -28,7 +28,7 @@ def sendNotification():
 	res = client.send(
 		token,
 		alert,
-		badge='1',
+		# badge='1',
 		sound='sound to play',
 		# category='category',
 		# content_available=True,
@@ -40,6 +40,8 @@ def sendNotification():
 		# launch_image='path/to/image.jpg',
 		# extra={'custom': 'data'}
 	)
+
+	DATA.save_shouldSend(0)
 
 	# print("SENDING FINISHEEEEEED")
 	# DATA.save_sending(0)
