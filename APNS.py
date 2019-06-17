@@ -1,6 +1,6 @@
 #APNS
 
-from pushjack import APNSClient
+# from pushjack import APNSClient
 from pushjack import APNSSandboxClient
 
 import time
