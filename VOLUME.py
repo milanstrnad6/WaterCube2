@@ -46,6 +46,7 @@ def update():
             if not sending:
                 DATA.save_sending(1)
                 APNS.sendNotification()
+                print("********************************************************** SHOULD SEND SET TO 0 !!!")
                 DATA.save_shouldSend(0)
     else:
         if percentage > 0.5:
