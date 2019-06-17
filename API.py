@@ -69,6 +69,7 @@ def manualPouring():
         HISTORY.save_manualPour(ml)
         duration = CONVERTOR.getDurationFrom(ml)
         PUMP.start(duration)
+        print("APNS SEND")
         APNS.sendNotifiaction()
     return {"data":{}}
 
