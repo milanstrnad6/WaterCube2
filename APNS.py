@@ -42,4 +42,4 @@ def sendNotification():
 	print(res.errors)
 	print(res.token_errors)
 
-#sendNotification()
+sendNotification()
