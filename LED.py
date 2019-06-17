@@ -27,9 +27,9 @@ def bootBlinking(duration):
         red()
         time.sleep(0.5)
         off()
-    blue()
-    red()
-    time.sleep(2)
+    time.sleep(0.5)
+    both()
+    time.sleep(0.5)
 
 #ACTIONS
 
@@ -41,6 +41,10 @@ def blue():
 def red():
     print("LED - RED")
     off()
+    IO.output(LED_RED, 1)
+
+def both():
+    IO.output(LED_BLUE, 1)
     IO.output(LED_RED, 1)
 
 def off():

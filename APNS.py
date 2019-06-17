@@ -8,7 +8,7 @@ import DATA
 #PROPERTIES
 
 #CERTIFICATE = '/home/pi/CUBE/DATA/pushcertdev.pem'
-CERTIFICATE = '/home/pi/CUBE/DATA/ccc.pem'
+CERTIFICATE = '/home/pi/CUBE3/WaterCube2/DATA/ccc.pem'
 
 #MAIN
 
