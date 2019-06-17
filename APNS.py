@@ -16,8 +16,16 @@ CERTIFICATE = '/home/pi/CUBE3/WaterCube2/DATA/ccc.pem'
 def sendNotification():
 	print("SEND NOTIFICATION...............................................")
 	token = DATA.load_token()
-	time.sleep(10)
-	print("SEND NOTIFICATION...............................................REALLY NOW")
+
+	print("TOKEN =")
+	print(token)
+
+	# time.sleep(10)
+	# print("SEND NOTIFICATION...............................................REALLY NOW")
+
+	expired_tokens = client.get_expired_tokens()
+	print("EXPIRED TOKENS = ")
+	print(expired_tokens)
 
 	alert = 'Bonsai: Water level below 20%, please refill.'
 
@@ -44,7 +52,9 @@ def sendNotification():
 	print(res.errors)
 	print(res.token_errors)
 
-	DATA.save_shouldSend(0)
+	client.close()
+
+	# DATA.save_shouldSend(0)
 
 	# print("SENDING FINISHEEEEEED")
 	# DATA.save_sending(0)

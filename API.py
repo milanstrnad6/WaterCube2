@@ -10,7 +10,7 @@ import CONVERTOR
 
 import PUMP
 
-import APNS
+# import APNS
 
 #PROPERTIES
 
